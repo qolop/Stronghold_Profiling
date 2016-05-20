@@ -56,7 +56,7 @@ function saveYearMatchesToDatabase(year, db) {
 //             match.redTeam = matches_list[i].alliances.red.teams;
 //             match.blueTeam = matches_list[i].alliances.blue.teams;
 
-//              If the doc already exists, we need to add the _rev to update the existing doc. 
+//              If the doc already exists, we need to add the _rev to update the existing doc.
 //             db.get(match._id).then(function(doc) {
 //                 match._rev = doc._rev;
 //                 docrec = doc;
@@ -629,7 +629,7 @@ function displayRobotData() {
         var teamNumber = getParameterByName('teamNum');
     } else {
         var teamNumber = $('#teamnums').val();
-    }   
+    }
 
     $('#PageTop > h1').text('Team ' + teamNumber);
 
@@ -638,7 +638,7 @@ function displayRobotData() {
     addAutoDefenseChart(teamNumber);
 
     getRobotData(teamNumber, 'match').then(function(result) {
-        //console.log('2'); 
+        //console.log('2');
         //console.log(result);
         var allData = result.docs;
         //$('#auto').append(JSON.stringify(allData));
@@ -680,7 +680,7 @@ function displaybotlist() {
 }
 
 function matchlist() {
-    
+
     var type = getParameterByName('type');
     if (type == 'performance') {
         var url = "robotPick.html";
@@ -828,7 +828,7 @@ function findController ( queryType, queryParameters, nullMessage ) {
 
 function findWhoCan(field, condition) {
     var who = [];
-    
+
     return db.createIndex({
         index: { fields: ['formType', field] }
     }).then(function() {
@@ -842,7 +842,7 @@ function findWhoCan(field, condition) {
         //queryString['fields'] = 'teamnum';
 
         console.log(queryString);
-        
+
 
         var result = db.find(queryString);
         return result;
@@ -883,7 +883,7 @@ function findCounts(arr) {
 
 function findWhoCanNumTimes(field, condition, numTimes) {
     var who = [];
-    
+
     return db.createIndex({
         index: { fields: ['formType', field] }
     }).then(function() {
@@ -912,12 +912,12 @@ function findWhoCanNumTimes(field, condition, numTimes) {
            }
 
            var whoCounts = findCounts(everyone);
-           
+
            var whoList = whoCounts[0];
            //console.log(whoList);
            var count = whoCounts[1];
            //console.log(count);
-           
+
            for (var i=0; i<whoList.length;i++) {
                 console.log(count[i]);
                if (count[i]>=numTimes) {
@@ -1041,7 +1041,7 @@ function addNavBar() {
 
     var dropdowns = $('#dropdowns');
     var enterData = '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Enter Data <span class="caret"></span></a><ul class="dropdown-menu"><li><a href="ListOfMatches.html?type=performance">Robot Perf.</a></li><li><a href="ListOfMatches.html?type=alliances">Match Assignments</a></li><li><a href="pitform.html">Interview Pit Crew</a></li></ul></li>';
-    var viewData = '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Display<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="robotStats.html">Team Number Database</a></li><li><a href="potentialQuerys.html">Query Database</a></li> </ul></li>';
+    var viewData = '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Display<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="robotStats.html">Team Number Database</a></li><li><a href="potentialquerys.html">Query Database</a></li> </ul></li>';
     var transferData = '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Import/Export<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="csvDownload.html">Download CSV</a></li><li><a href="csvUpload.html">Upload CSV</a></li> </ul></li>';
 
     dropdowns.append(enterData);
